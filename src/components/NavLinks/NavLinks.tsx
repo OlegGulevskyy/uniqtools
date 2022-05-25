@@ -1,12 +1,11 @@
+import { ALL_SCREENS } from '@/data/screens';
 import {
   ThemeIcon,
   UnstyledButton,
   Group,
   Text,
-  Button,
   MantineTheme,
 } from '@mantine/core';
-import { navData } from './data';
 
 interface NavLinkProps {
   icon: React.ReactNode;
@@ -53,6 +52,15 @@ function NavLink({ icon, color, label, disabled }: NavLinkProps) {
 }
 
 export function NavLinks() {
-  const links = navData.map((link) => <NavLink {...link} key={link.label} />);
+  const links = ALL_SCREENS.map(({ navigation }) => {
+    const LinkIcon = navigation.icon;
+    return (
+      <NavLink
+        {...navigation}
+        key={navigation.label}
+        icon={<LinkIcon size={16} />}
+      />
+    );
+  });
   return <div>{links}</div>;
 }
