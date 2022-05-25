@@ -1,4 +1,5 @@
 import { ALL_SCREENS } from '@/data/screens';
+import { ChangeScreenPropType, useNavigation } from '@/contexts/navigation';
 import {
   ThemeIcon,
   UnstyledButton,
@@ -12,9 +13,10 @@ interface NavLinkProps {
   color: string;
   label: string;
   disabled?: boolean;
+  onClick: () => void;
 }
 
-function NavLink({ icon, color, label, disabled }: NavLinkProps) {
+function NavLink({ icon, color, label, disabled, onClick }: NavLinkProps) {
   const linkColorStyle = (theme: MantineTheme) => {
     if (disabled) {
       return theme.colorScheme === 'dark' ? theme.colors.gray[6] : theme.black;
@@ -23,7 +25,8 @@ function NavLink({ icon, color, label, disabled }: NavLinkProps) {
   };
   return (
     <UnstyledButton
-      disabled
+      disabled={disabled}
+      onClick={onClick}
       sx={(theme) => ({
         display: 'block',
         width: '100%',
@@ -52,11 +55,16 @@ function NavLink({ icon, color, label, disabled }: NavLinkProps) {
 }
 
 export function NavLinks() {
-  const links = ALL_SCREENS.map(({ navigation }) => {
+  const { changeScreen } = useNavigation();
+
+  const links = ALL_SCREENS.map((screen) => {
+    const { navigation } = screen;
     const LinkIcon = navigation.icon;
+    const onLinkClick = () => changeScreen(screen.id as ChangeScreenPropType);
     return (
       <NavLink
         {...navigation}
+        onClick={onLinkClick}
         key={navigation.label}
         icon={<LinkIcon size={16} />}
       />

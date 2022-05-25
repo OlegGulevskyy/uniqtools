@@ -1,5 +1,5 @@
+import { useNavigation } from '@/contexts/navigation';
 import { ALL_SCREENS } from '@/data/screens';
-import { useNavigation } from '@/hooks/useNavigation';
 
 const CurrentScreen = ({ screenIndex }: { screenIndex: number }) => {
   const foundScreen = ALL_SCREENS[screenIndex] ?? ALL_SCREENS[0];
