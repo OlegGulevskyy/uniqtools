@@ -1,4 +1,6 @@
 import { ALL_SCREENS } from '@/data/screens';
+import { JSONValidationFormattingId } from '@/screens/JsonValidationFormatting';
+import { TimestampsDatesId } from '@/screens/TimestampsDates';
 import { useState } from 'react';
 
 const DEFAULT_SCREEN_INDEX = 0;
@@ -7,8 +9,8 @@ const index = (screenId: string) =>
   ALL_SCREENS.findIndex((i) => i.id === screenId);
 
 enum Screen {
-  TimestampsDates = index('timestamps-dates'),
-  JsonValidationFormatting = index('json-validate-format'),
+  TimestampsDates = index(TimestampsDatesId),
+  JsonValidationFormatting = index(JSONValidationFormattingId),
   Base64String = index('base64-string'),
   MarkdownPreview = index('markdown-editor'),
 }

@@ -1,5 +1,8 @@
-import { JsonValidationFormatting } from '@/screens/JsonValidationFormatting';
-import { TimestampsDates } from '@/screens/TimestampsDates';
+import {
+  JsonValidationFormatting,
+  JSONValidationFormattingId,
+} from '@/screens/JsonValidationFormatting';
+import { TimestampsDates, TimestampsDatesId } from '@/screens/TimestampsDates';
 
 import { Lock, CalendarTime } from 'tabler-icons-react';
 
@@ -7,7 +10,7 @@ export const ALL_SCREENS = [
   {
     component: TimestampsDates,
     title: 'Timestamp and Dates parsing',
-    id: 'timestamps-dates',
+    id: TimestampsDatesId,
     navigation: {
       icon: CalendarTime,
       color: 'blue',
@@ -17,7 +20,7 @@ export const ALL_SCREENS = [
   {
     component: JsonValidationFormatting,
     title: 'JSON Validation and Formatting utility',
-    id: 'json-validate-format',
+    id: JSONValidationFormattingId,
     navigation: {
       icon: Lock,
       color: 'gray',
