@@ -7,6 +7,7 @@ export const ALL_SCREENS = [
   {
     component: TimestampsDates,
     title: 'Timestamp and Dates parsing',
+    id: 'timestamps-dates',
     navigation: {
       icon: CalendarTime,
       color: 'blue',
@@ -16,6 +17,7 @@ export const ALL_SCREENS = [
   {
     component: JsonValidationFormatting,
     title: 'JSON Validation and Formatting utility',
+    id: 'json-validate-format',
     navigation: {
       icon: Lock,
       color: 'gray',
@@ -26,6 +28,7 @@ export const ALL_SCREENS = [
   {
     component: JsonValidationFormatting,
     title: 'Base64 String Encoding / Decoding utility.. Coming soon!',
+    id: 'base64-string',
     navigation: {
       icon: Lock,
       color: 'gray',
@@ -36,6 +39,7 @@ export const ALL_SCREENS = [
   {
     component: JsonValidationFormatting,
     title: 'Markdown preview live editor... Coming soon!',
+    id: 'markdown-editor',
     navigation: {
       icon: Lock,
       color: 'gray',
