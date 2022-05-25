@@ -1,1 +1,1 @@
-export { Component as MainContainer } from './Component';
+export { Component as MainContainer } from './Main';

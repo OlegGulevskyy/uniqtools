@@ -1,1 +1,1 @@
-export { SidebarFooter } from './Component';
+export { SidebarFooter } from './SidebarFooter';
