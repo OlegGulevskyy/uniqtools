@@ -1,3 +1,3 @@
 export const Component = () => {
-  return <div>Coming soon...</div>;
+  return <div>JSON Validation and Formatting utility :: Coming soon...</div>;
 };
