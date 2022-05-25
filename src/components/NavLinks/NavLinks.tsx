@@ -13,10 +13,18 @@ interface NavLinkProps {
   color: string;
   label: string;
   disabled?: boolean;
+  isActive: boolean;
   onClick: () => void;
 }
 
-function NavLink({ icon, color, label, disabled, onClick }: NavLinkProps) {
+function NavLink({
+  icon,
+  color,
+  label,
+  disabled,
+  onClick,
+  isActive,
+}: NavLinkProps) {
   const linkColorStyle = (theme: MantineTheme) => {
     if (disabled) {
       return theme.colorScheme === 'dark' ? theme.colors.gray[6] : theme.black;
@@ -55,16 +63,16 @@ function NavLink({ icon, color, label, disabled, onClick }: NavLinkProps) {
 }
 
 export function NavLinks() {
-  const { changeScreen } = useNavigation();
+  const { changeScreen, currentScreenIndex } = useNavigation();
 
-  const links = ALL_SCREENS.map((screen) => {
+  const links = ALL_SCREENS.map((screen, index) => {
     const { navigation } = screen;
     const LinkIcon = navigation.icon;
-    const onLinkClick = () => changeScreen(screen.id as ChangeScreenPropType);
     return (
       <NavLink
         {...navigation}
-        onClick={onLinkClick}
+        isActive={index === currentScreenIndex}
+        onClick={() => changeScreen(screen.id as ChangeScreenPropType)}
         key={navigation.label}
         icon={<LinkIcon size={16} />}
       />
