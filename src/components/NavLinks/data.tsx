@@ -4,7 +4,7 @@ export const navData = [
   {
     icon: <CalendarTime size={16} />,
     color: 'blue',
-    label: 'Timestamps and dates',
+    label: 'Timestamps and Dates',
   },
   {
     icon: <Lock size={16} />,
