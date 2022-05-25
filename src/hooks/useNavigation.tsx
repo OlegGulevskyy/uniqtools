@@ -7,7 +7,7 @@ const index = (screenId: string) =>
   ALL_SCREENS.findIndex((i) => i.id === screenId);
 
 enum Screen {
-  TimestampsData = index('timestamps-dates'),
+  TimestampsDates = index('timestamps-dates'),
   JsonValidationFormatting = index('json-validate-format'),
   Base64String = index('base64-string'),
   MarkdownPreview = index('markdown-editor'),

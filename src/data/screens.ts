@@ -1,5 +1,5 @@
 import { JsonValidationFormatting } from '@/screens/JsonValidationFormatting';
-import { TimestampsDates } from '@/screens/Timestamps-And-Dates';
+import { TimestampsDates } from '@/screens/TimestampsDates';
 
 import { Lock, CalendarTime } from 'tabler-icons-react';
 
