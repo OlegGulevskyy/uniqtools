@@ -6,10 +6,11 @@ import { useLogic } from './logic';
 
 export const TimestampFromDateTime = () => {
   const {
-    currentDateTime,
-    setCurrentDateTime,
+    currentDate,
     onDatePickerChange,
     timestampResult,
+    currentTime,
+    setCurrentTime,
   } = useLogic();
 
   return (
@@ -19,7 +20,7 @@ export const TimestampFromDateTime = () => {
           <Text>Select date</Text>
           <DatePicker
             icon={<Calendar size={16} />}
-            value={currentDateTime}
+            value={currentDate}
             onChange={onDatePickerChange}
           />
         </Grid.Col>
@@ -28,8 +29,8 @@ export const TimestampFromDateTime = () => {
           <TimeInput
             clearable
             icon={<Clock size={16} />}
-            value={currentDateTime}
-            onChange={setCurrentDateTime}
+            value={currentTime}
+            onChange={setCurrentTime}
           />
         </Grid.Col>
       </Grid>
