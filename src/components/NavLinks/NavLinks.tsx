@@ -54,7 +54,7 @@ function NavLink({
       })}
     >
       <Group>
-        <ThemeIcon color={color} variant="light">
+        <ThemeIcon color={isActive ? color : 'gray'} variant="light">
           {icon}
         </ThemeIcon>
         <div>

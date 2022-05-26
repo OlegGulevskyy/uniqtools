@@ -24,7 +24,7 @@ export const ALL_SCREENS = [
     id: JSONValidationFormattingId,
     navigation: {
       icon: Lock,
-      color: 'gray',
+      color: 'pink',
       label: 'JSON Validation / Formatting',
       disabled: true,
       shortDescription: 'Coming soon...',
