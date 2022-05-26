@@ -1,5 +1,5 @@
 import { CopyableBox } from '@/components/CopyableBox';
-import { Grid, Title } from '@mantine/core';
+import { Grid, Title, Button } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
 import { Calendar, Clock } from 'tabler-icons-react';
 import { useLogic } from './logic';
@@ -24,7 +24,11 @@ export const TimestampFromDateTime = () => {
             icon={<Calendar size={16} />}
             value={currentDate}
             onChange={onDatePickerChange}
+            style={{ marginBottom: '10px' }}
           />
+          <Button variant="outline" compact>
+            Today
+          </Button>
         </Grid.Col>
         <Grid.Col span={6}>
           <Title style={{ margin: '5px 0' }} order={6}>
@@ -35,14 +39,14 @@ export const TimestampFromDateTime = () => {
             icon={<Clock size={16} />}
             value={currentTime}
             onChange={setCurrentTime}
+            style={{ marginBottom: '10px' }}
           />
+          <Button variant="outline" compact>
+            Now
+          </Button>
         </Grid.Col>
       </Grid>
-      <CopyableBox
-        label="Result"
-        enableTooltip
-        displayValue={String(timestampResult)}
-      />
+      <CopyableBox enableTooltip displayValue={String(timestampResult)} />
     </>
   );
 };

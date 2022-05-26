@@ -5,7 +5,7 @@ import { Copy } from 'tabler-icons-react';
 
 type CopyableBoxProps = {
   displayValue: string;
-  label: string;
+  label?: string;
   enableTooltip?: boolean;
 };
 export const Component: React.FC<CopyableBoxProps> = ({
@@ -15,9 +15,11 @@ export const Component: React.FC<CopyableBoxProps> = ({
 }) => {
   return (
     <>
-      <Title style={{ margin: '5px 0' }} order={6}>
-        {label}
-      </Title>
+      {label && (
+        <Title style={{ marginTop: '5px' }} order={6}>
+          {label}
+        </Title>
+      )}
       <Tooltip
         disabled={!enableTooltip}
         style={{ width: '100%' }}
@@ -35,6 +37,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
             borderRadius: theme.radius.md,
             display: 'flex',
             justifyContent: 'space-between',
+            margin: '10px 0',
 
             '&:hover': {
               backgroundColor:
