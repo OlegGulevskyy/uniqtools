@@ -6,6 +6,9 @@ export const useLogic = () => {
   const [currentTime, setCurrentTime] = React.useState(new Date());
   const onDatePickerChange = (value: Date) => setCurrentDate(value);
 
+  const resetCurrentDate = () => setCurrentDate(new Date());
+  const resetCurrentTime = () => setCurrentTime(new Date());
+
   const result = React.useMemo(() => {
     let date = dayjs(currentDate);
     if (currentTime) {
@@ -31,5 +34,7 @@ export const useLogic = () => {
     setCurrentDate,
     onDatePickerChange,
     timestampResult: result,
+    resetDate: resetCurrentDate,
+    resetTime: resetCurrentTime,
   };
 };

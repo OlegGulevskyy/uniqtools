@@ -11,6 +11,8 @@ export const TimestampFromDateTime = () => {
     timestampResult,
     currentTime,
     setCurrentTime,
+    resetDate,
+    resetTime,
   } = useLogic();
 
   return (
@@ -26,7 +28,7 @@ export const TimestampFromDateTime = () => {
             onChange={onDatePickerChange}
             style={{ marginBottom: '10px' }}
           />
-          <Button variant="outline" compact>
+          <Button onClick={resetDate} variant="outline" compact>
             Today
           </Button>
         </Grid.Col>
@@ -41,7 +43,7 @@ export const TimestampFromDateTime = () => {
             onChange={setCurrentTime}
             style={{ marginBottom: '10px' }}
           />
-          <Button variant="outline" compact>
+          <Button onClick={resetTime} variant="outline" compact>
             Now
           </Button>
         </Grid.Col>
