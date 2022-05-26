@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Title, Text, Box, Paper, Grid, Tooltip } from '@mantine/core';
-import { Calendar } from '@mantine/dates';
+import { Title, Text, Box, Paper, Grid, Tooltip, Divider } from '@mantine/core';
+import { DatePicker, TimeInput } from '@mantine/dates';
 import copy from 'copy-to-clipboard';
 import { Copy } from 'tabler-icons-react';
 
@@ -48,7 +48,7 @@ export const Component = () => {
                 })}
               >
                 <div>{currentDate}</div>
-                <Copy size={16} />
+                <Copy size={20} />
               </Box>
             </Tooltip>
           </Grid.Col>
@@ -80,7 +80,7 @@ export const Component = () => {
                 })}
               >
                 <div>{currentTime}</div>
-                <Copy size={16} />
+                <Copy size={20} />
               </Box>
             </Tooltip>
           </Grid.Col>
@@ -112,17 +112,53 @@ export const Component = () => {
                 })}
               >
                 <div>{currentWeekCount}</div>
-                <Copy size={16} />
+                <Copy size={20} />
               </Box>
             </Tooltip>
           </Grid.Col>
         </Grid>
+        <Divider style={{ margin: '20px 0' }} />
+        <Title order={5}>Get timestamp from date and time</Title>
         <Grid>
-          <Grid.Col span={4}>
-            Get timestamp from date
-            <Calendar />
+          <Grid.Col span={6}>
+            <Text>Select date</Text>
+            <DatePicker />
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <Text>Select time</Text>
+            <TimeInput />
           </Grid.Col>
         </Grid>
+        <Text>Result</Text>
+        <Tooltip
+          style={{ width: '100%' }}
+          openDelay={500}
+          label="Click to copy"
+        >
+          <Box
+            onClick={() => copy(currentTime)}
+            sx={(theme) => ({
+              backgroundColor:
+                theme.colorScheme === 'dark'
+                  ? theme.colors.dark[6]
+                  : theme.colors.gray[2],
+              padding: theme.spacing.sm,
+              borderRadius: theme.radius.md,
+              display: 'flex',
+              justifyContent: 'space-between',
+
+              '&:hover': {
+                backgroundColor:
+                  theme.colorScheme === 'dark'
+                    ? theme.colors.dark[5]
+                    : theme.colors.gray[1],
+              },
+            })}
+          >
+            <div>{18998282829}</div>
+            <Copy size={20} />
+          </Box>
+        </Tooltip>
       </Paper>
     </div>
   );
