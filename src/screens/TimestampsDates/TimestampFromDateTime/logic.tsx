@@ -14,7 +14,8 @@ export const useLogic = () => {
   );
   const onDatePickerChange = (value: Date) => setCurrentDate(value);
 
-  const resetCurrentDate = () => setCurrentDate(new Date());
+  const resetCurrentDate = () =>
+    setCurrentDate(new Date(currentDate.setHours(0, 0, 0, 0)));
   const resetCurrentTime = () => setCurrentTime(new Date());
 
   const result = React.useMemo(() => {
