@@ -13,7 +13,7 @@ export const Component = () => {
         </Text>
       </Title>
       <Paper shadow="xs" p="md">
-        <Title order={5}>Current date / time</Title>
+        <Title order={5}>Current things</Title>
         <CurrentStats />
 
         <Divider style={{ margin: '20px 0' }} />

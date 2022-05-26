@@ -7,22 +7,14 @@ export const CurrentStats = () => {
   return (
     <Grid>
       <Grid.Col span={3}>
-        <CopyableBox
-          label="Current date"
-          displayValue={currentDate}
-          enableTooltip
-        />
+        <CopyableBox label="Date" displayValue={currentDate} enableTooltip />
+      </Grid.Col>
+      <Grid.Col span={3}>
+        <CopyableBox label="Time" displayValue={currentTime} enableTooltip />
       </Grid.Col>
       <Grid.Col span={3}>
         <CopyableBox
-          label="Current time"
-          displayValue={currentTime}
-          enableTooltip
-        />
-      </Grid.Col>
-      <Grid.Col span={3}>
-        <CopyableBox
-          label="Current week count"
+          label="Week count"
           displayValue={String(weekCounter)}
           enableTooltip
         />
