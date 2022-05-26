@@ -15,6 +15,7 @@ export const ALL_SCREENS = [
       icon: CalendarTime,
       color: 'blue',
       label: 'Timestamps and Dates',
+      shortDescription: 'Parse timestamps and dates',
     },
   },
   {
@@ -26,6 +27,7 @@ export const ALL_SCREENS = [
       color: 'gray',
       label: 'JSON Validation / Formatting',
       disabled: true,
+      shortDescription: 'Coming soon...',
     },
   },
   {
@@ -37,6 +39,7 @@ export const ALL_SCREENS = [
       color: 'gray',
       label: 'Base64 String Encoder / Decoder',
       disabled: true,
+      shortDescription: 'Coming soon...',
     },
   },
   {
@@ -48,6 +51,7 @@ export const ALL_SCREENS = [
       color: 'gray',
       label: 'Markdown preview',
       disabled: true,
+      shortDescription: 'Coming soon...',
     },
   },
 ];

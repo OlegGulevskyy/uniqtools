@@ -15,6 +15,7 @@ interface NavLinkProps {
   disabled?: boolean;
   isActive: boolean;
   onClick: () => void;
+  shortDescription?: string;
 }
 
 function NavLink({
@@ -24,6 +25,7 @@ function NavLink({
   disabled,
   onClick,
   isActive,
+  shortDescription,
 }: NavLinkProps) {
   const linkColorStyle = (theme: MantineTheme) => {
     if (disabled) {
@@ -55,8 +57,12 @@ function NavLink({
         <ThemeIcon color={color} variant="light">
           {icon}
         </ThemeIcon>
-
-        <Text size="sm">{label}</Text>
+        <div>
+          <Text size="sm">{label}</Text>
+          <Text size="xs" color={'dimmed'}>
+            {shortDescription}
+          </Text>
+        </div>
       </Group>
     </UnstyledButton>
   );
