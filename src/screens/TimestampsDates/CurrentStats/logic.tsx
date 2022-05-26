@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import locale from 'dayjs/locale/en-gb';
 import { useInterval } from '@mantine/hooks';
 
 const DATE_FORMAT = 'DD/MM/YYYY';
@@ -17,7 +18,7 @@ export const useLogic = () => {
     setCurrentTime(dayjs().format(TIME_FORMAT));
   }, 1000);
   const weekCounter = React.useMemo(() => {
-    return dayjs().week();
+    return dayjs().locale(locale).week();
   }, []);
 
   React.useEffect(() => {
