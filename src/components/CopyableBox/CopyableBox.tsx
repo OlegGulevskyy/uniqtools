@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Title, Tooltip } from '@mantine/core';
 import copy from 'copy-to-clipboard';
 import { Copy } from 'tabler-icons-react';
+import cn from './CopyableBox.module.css';
 
 type CopyableBoxProps = {
   displayValue: string;
@@ -14,7 +15,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
   label,
 }) => {
   return (
-    <>
+    <div className={cn.copyableWrapper}>
       {label && (
         <Title style={{ marginTop: '5px' }} order={6}>
           {label}
@@ -37,7 +38,6 @@ export const Component: React.FC<CopyableBoxProps> = ({
             borderRadius: theme.radius.md,
             display: 'flex',
             justifyContent: 'space-between',
-            margin: '10px 0',
 
             '&:hover': {
               backgroundColor:
@@ -51,6 +51,6 @@ export const Component: React.FC<CopyableBoxProps> = ({
           <Copy size={20} />
         </Box>
       </Tooltip>
-    </>
+    </div>
   );
 };
