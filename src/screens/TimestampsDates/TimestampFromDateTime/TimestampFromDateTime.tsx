@@ -1,5 +1,5 @@
 import { CopyableBox } from '@/components/CopyableBox';
-import { Grid, Title, Button } from '@mantine/core';
+import { Grid, Title, Button, Chips, Chip } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
 import { Calendar, Clock } from 'tabler-icons-react';
 import { useLogic } from './logic';
@@ -13,12 +13,14 @@ export const TimestampFromDateTime = () => {
     setCurrentTime,
     resetDate,
     resetTime,
+    timestampFormat,
+    setTimestampFormat,
   } = useLogic();
 
   return (
     <>
       <Grid>
-        <Grid.Col span={6}>
+        <Grid.Col span={4}>
           <Title style={{ margin: '5px 0' }} order={6}>
             Select date
           </Title>
@@ -32,7 +34,7 @@ export const TimestampFromDateTime = () => {
             Today
           </Button>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col span={4}>
           <Title style={{ margin: '5px 0' }} order={6}>
             Select time
           </Title>
@@ -48,7 +50,19 @@ export const TimestampFromDateTime = () => {
           </Button>
         </Grid.Col>
       </Grid>
-      <CopyableBox enableTooltip displayValue={String(timestampResult)} />
+      <Grid>
+        <Grid.Col span={8}>
+          <CopyableBox enableTooltip displayValue={String(timestampResult)} />
+          <Chips
+            multiple={false}
+            value={timestampFormat}
+            onChange={setTimestampFormat}
+          >
+            <Chip value={'ms'}>Milliseconds</Chip>
+            <Chip value={'seconds'}>Seconds</Chip>
+          </Chips>
+        </Grid.Col>
+      </Grid>
     </>
   );
 };

@@ -1,9 +1,17 @@
 import dayjs from 'dayjs';
 import React from 'react';
 
+const TimestampFormats = {
+  Milliseconds: 'ms',
+  Seconds: 'seconds',
+};
+
 export const useLogic = () => {
   const [currentDate, setCurrentDate] = React.useState(new Date());
   const [currentTime, setCurrentTime] = React.useState(new Date());
+  const [timestampFormat, setTimestampFormat] = React.useState(
+    TimestampFormats.Milliseconds
+  );
   const onDatePickerChange = (value: Date) => setCurrentDate(value);
 
   const resetCurrentDate = () => setCurrentDate(new Date());
@@ -24,8 +32,14 @@ export const useLogic = () => {
         .set('second', time[2]);
     }
     const res = date.valueOf();
-    return isNaN(res) ? 0 : res;
-  }, [currentDate, currentTime]);
+    if (isNaN(res)) {
+      return 0;
+    }
+
+    return timestampFormat === TimestampFormats.Seconds
+      ? date.unix()
+      : date.valueOf();
+  }, [currentDate, currentTime, timestampFormat]);
 
   return {
     currentDate,
@@ -36,5 +50,7 @@ export const useLogic = () => {
     timestampResult: result,
     resetDate: resetCurrentDate,
     resetTime: resetCurrentTime,
+    timestampFormat,
+    setTimestampFormat,
   };
 };
