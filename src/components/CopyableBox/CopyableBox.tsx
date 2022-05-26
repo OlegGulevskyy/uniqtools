@@ -17,7 +17,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
   return (
     <div className={cn.copyableWrapper}>
       {label && (
-        <Title style={{ marginTop: '5px' }} order={6}>
+        <Title style={{ margin: '5px 0' }} order={6}>
           {label}
         </Title>
       )}
