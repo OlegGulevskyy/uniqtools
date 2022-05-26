@@ -1,5 +1,6 @@
 import { Title, Text, Paper, Divider } from '@mantine/core';
 import { CurrentStats } from './CurrentStats';
+import { DateTimeFromTimestamp } from './DateTimeFromTimestamp';
 import { TimestampFromDateTime } from './TimestampFromDateTime';
 
 export const Component = () => {
@@ -13,9 +14,14 @@ export const Component = () => {
       </Title>
       <Paper shadow="xs" p="md">
         <CurrentStats />
+
         <Divider style={{ margin: '20px 0' }} />
+
         <Title order={5}>Get timestamp from date and time</Title>
         <TimestampFromDateTime />
+
+        <Divider style={{ margin: '20px 0' }} />
+        <DateTimeFromTimestamp />
       </Paper>
     </div>
   );
