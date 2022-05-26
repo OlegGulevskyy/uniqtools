@@ -1,12 +1,10 @@
-import { useState } from 'react';
 import { Title, Text, Paper, Grid, Divider } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
 import { CopyableBox } from '@/components/CopyableBox';
+import { useLogic } from './logic';
 
 export const Component = () => {
-  const [currentDate, setCurrentDate] = useState('26 / 05 / 2022');
-  const [currentTime, setCurrentTime] = useState('13:50:01');
-  const [currentWeekCount, setCurrentWeekCount] = useState('20');
+  const { currentDate, currentTime, weekCounter } = useLogic();
 
   return (
     <div>
@@ -36,7 +34,7 @@ export const Component = () => {
           <Grid.Col span={3}>
             <CopyableBox
               label="Current week count"
-              displayValue={currentWeekCount}
+              displayValue={String(weekCounter)}
               enableTooltip
             />
           </Grid.Col>
