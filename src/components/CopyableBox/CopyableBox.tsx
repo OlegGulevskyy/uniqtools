@@ -15,7 +15,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
 }) => {
   return (
     <>
-      <Title order={5}>{label}</Title>
+      <Title order={6}>{label}</Title>
       <Tooltip
         disabled={!enableTooltip}
         style={{ width: '100%' }}

@@ -26,9 +26,14 @@ export const useLogic = () => {
     return () => currentTimeInterval.stop();
   }, []);
 
+  const currentDateTimestamp = React.useMemo(() => {
+    return dayjs().valueOf();
+  }, []);
+
   return {
     currentDate,
     currentTime,
     weekCounter,
+    currentDateTimestamp,
   };
 };
