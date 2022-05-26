@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Title, Text, Box, Paper, Grid, Tooltip, Divider } from '@mantine/core';
+import { Title, Text, Paper, Grid, Divider } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
-import copy from 'copy-to-clipboard';
-import { Copy } from 'tabler-icons-react';
+import { CopyableBox } from '@/components/CopyableBox';
 
 export const Component = () => {
   const [currentDate, setCurrentDate] = useState('26 / 05 / 2022');
@@ -21,100 +20,25 @@ export const Component = () => {
       <Paper shadow="xs" p="md">
         <Grid>
           <Grid.Col span={3}>
-            <Title order={5}>Current date</Title>
-            <Tooltip
-              style={{ width: '100%' }}
-              openDelay={500}
-              label="Click to copy"
-            >
-              <Box
-                onClick={() => copy(currentDate)}
-                sx={(theme) => ({
-                  backgroundColor:
-                    theme.colorScheme === 'dark'
-                      ? theme.colors.dark[6]
-                      : theme.colors.gray[2],
-                  padding: theme.spacing.sm,
-                  borderRadius: theme.radius.md,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-
-                  '&:hover': {
-                    backgroundColor:
-                      theme.colorScheme === 'dark'
-                        ? theme.colors.dark[5]
-                        : theme.colors.gray[1],
-                  },
-                })}
-              >
-                <div>{currentDate}</div>
-                <Copy size={20} />
-              </Box>
-            </Tooltip>
+            <CopyableBox
+              label="Current date"
+              displayValue={currentDate}
+              enableTooltip
+            />
           </Grid.Col>
           <Grid.Col span={3}>
-            <Title order={5}>Current time</Title>
-            <Tooltip
-              style={{ width: '100%' }}
-              openDelay={500}
-              label="Click to copy"
-            >
-              <Box
-                onClick={() => copy(currentTime)}
-                sx={(theme) => ({
-                  backgroundColor:
-                    theme.colorScheme === 'dark'
-                      ? theme.colors.dark[6]
-                      : theme.colors.gray[2],
-                  padding: theme.spacing.sm,
-                  borderRadius: theme.radius.md,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-
-                  '&:hover': {
-                    backgroundColor:
-                      theme.colorScheme === 'dark'
-                        ? theme.colors.dark[5]
-                        : theme.colors.gray[1],
-                  },
-                })}
-              >
-                <div>{currentTime}</div>
-                <Copy size={20} />
-              </Box>
-            </Tooltip>
+            <CopyableBox
+              label="Current time"
+              displayValue={currentTime}
+              enableTooltip
+            />
           </Grid.Col>
           <Grid.Col span={3}>
-            <Title order={5}>Current week count</Title>
-            <Tooltip
-              style={{ width: '100%' }}
-              openDelay={500}
-              label="Click to copy"
-            >
-              <Box
-                onClick={() => copy(currentWeekCount)}
-                sx={(theme) => ({
-                  backgroundColor:
-                    theme.colorScheme === 'dark'
-                      ? theme.colors.dark[6]
-                      : theme.colors.gray[2],
-                  padding: theme.spacing.sm,
-                  borderRadius: theme.radius.md,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-
-                  '&:hover': {
-                    backgroundColor:
-                      theme.colorScheme === 'dark'
-                        ? theme.colors.dark[5]
-                        : theme.colors.gray[1],
-                  },
-                })}
-              >
-                <div>{currentWeekCount}</div>
-                <Copy size={20} />
-              </Box>
-            </Tooltip>
+            <CopyableBox
+              label="Current week count"
+              displayValue={currentWeekCount}
+              enableTooltip
+            />
           </Grid.Col>
         </Grid>
         <Divider style={{ margin: '20px 0' }} />
@@ -126,39 +50,10 @@ export const Component = () => {
           </Grid.Col>
           <Grid.Col span={6}>
             <Text>Select time</Text>
-            <TimeInput />
+            <TimeInput clearable />
           </Grid.Col>
         </Grid>
-        <Text>Result</Text>
-        <Tooltip
-          style={{ width: '100%' }}
-          openDelay={500}
-          label="Click to copy"
-        >
-          <Box
-            onClick={() => copy(currentTime)}
-            sx={(theme) => ({
-              backgroundColor:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[6]
-                  : theme.colors.gray[2],
-              padding: theme.spacing.sm,
-              borderRadius: theme.radius.md,
-              display: 'flex',
-              justifyContent: 'space-between',
-
-              '&:hover': {
-                backgroundColor:
-                  theme.colorScheme === 'dark'
-                    ? theme.colors.dark[5]
-                    : theme.colors.gray[1],
-              },
-            })}
-          >
-            <div>{18998282829}</div>
-            <Copy size={20} />
-          </Box>
-        </Tooltip>
+        <CopyableBox label="Result" enableTooltip displayValue="1818181718" />
       </Paper>
     </div>
   );
