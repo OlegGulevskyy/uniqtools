@@ -38,6 +38,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
             borderRadius: theme.radius.md,
             display: 'flex',
             justifyContent: 'space-between',
+            cursor: 'default',
 
             '&:hover': {
               backgroundColor:
