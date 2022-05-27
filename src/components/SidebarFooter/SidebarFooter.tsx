@@ -46,11 +46,11 @@ export function SidebarFooter() {
             </Text>
             <Text color="dimmed" size="xs">
               powered by{' '}
-              <Anchor href="https://mantine.dev/" target="_blank">
+              <Anchor size="xs" href="https://mantine.dev/" target="_blank">
                 Mantine
               </Anchor>{' '}
               &{' '}
-              <Anchor href="https://tauri.studio/" target="_blank">
+              <Anchor size="xs" href="https://tauri.studio/" target="_blank">
                 Tauri
               </Anchor>
             </Text>
