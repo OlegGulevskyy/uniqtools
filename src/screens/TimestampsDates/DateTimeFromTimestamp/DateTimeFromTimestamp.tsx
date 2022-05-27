@@ -29,7 +29,7 @@ export const DateTimeFromTimestamp = () => {
     <>
       <Title order={5}>Get timestamp from date and time</Title>
       <Grid>
-        <Grid.Col span={4}>
+        <Grid.Col xs={12} sm={12} md={4} lg={4}>
           <InputWrapper
             label="Unix timestamp"
             description="Enter any format of unix timestamp (ms or seconds) from epoch"
@@ -53,7 +53,7 @@ export const DateTimeFromTimestamp = () => {
             displayValue={outputResult || 'Failed to parse'}
           />
         </Grid.Col>
-        <Grid.Col span={8}>
+        <Grid.Col xs={12} sm={12} md={8} lg={8}>
           <Title order={5}>Settings</Title>
           <Group grow>
             <InputWrapper label="Output formatting">
