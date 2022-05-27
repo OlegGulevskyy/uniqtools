@@ -1,7 +1,10 @@
-import { Logo } from '@/components/Logo';
-import { ActionIcon, ColorScheme, Group, Header } from '@mantine/core';
 import React from 'react';
+import { Logo } from '@/components/Logo';
+import { ActionIcon, ColorScheme, Group, Header, Tooltip } from '@mantine/core';
 import { MoonStars, Sun } from 'tabler-icons-react';
+import { Discord } from '@/assets/icons/Discord';
+import { GitHub } from '@/assets/icons/GitHub';
+import { open } from '@tauri-apps/api/shell';
 
 type HeaderContainerProps = {
   colorScheme: ColorScheme;
@@ -15,13 +18,44 @@ export const HeaderContainer: React.FC<HeaderContainerProps> = ({
     <Header height={60}>
       <Group sx={{ height: '100%' }} px={20} position="apart">
         <Logo colorScheme={colorScheme} />
-        <ActionIcon
-          variant="default"
-          onClick={() => toggleColorScheme()}
-          size={30}
-        >
-          {colorScheme === 'dark' ? <Sun size={16} /> : <MoonStars size={16} />}
-        </ActionIcon>
+        <Group>
+          <Tooltip
+            position="bottom"
+            label="Your help is needed"
+            openDelay={500}
+          >
+            <ActionIcon
+              onClick={() => open('https://github.com/OlegGulevskyy/uniqtools')}
+              radius={'md'}
+              variant="default"
+              size={30}
+            >
+              <GitHub />
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip position="bottom" label="Follow on Discord" openDelay={500}>
+            <ActionIcon
+              onClick={() => open('https://discord.gg/V9mSTv7yuD')}
+              radius={'md'}
+              variant="default"
+              size={30}
+            >
+              <Discord size={30} />
+            </ActionIcon>
+          </Tooltip>
+          <ActionIcon
+            variant="default"
+            radius={'md'}
+            onClick={() => toggleColorScheme()}
+            size={30}
+          >
+            {colorScheme === 'dark' ? (
+              <Sun size={16} />
+            ) : (
+              <MoonStars size={16} />
+            )}
+          </ActionIcon>
+        </Group>
       </Group>
     </Header>
   );
