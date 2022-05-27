@@ -6,13 +6,13 @@ export const CurrentStats = () => {
   const { currentDate, currentTime, weekCounter } = useLogic();
   return (
     <Grid>
-      <Grid.Col span={3}>
+      <Grid.Col xs={12} sm={4} md={4} lg={4}>
         <CopyableBox label="Date" displayValue={currentDate} enableTooltip />
       </Grid.Col>
-      <Grid.Col span={3}>
+      <Grid.Col xs={12} sm={4} md={4} lg={4}>
         <CopyableBox label="Time" displayValue={currentTime} enableTooltip />
       </Grid.Col>
-      <Grid.Col span={3}>
+      <Grid.Col xs={12} sm={4} md={4} lg={4}>
         <CopyableBox
           label="Week count"
           displayValue={String(weekCounter)}
