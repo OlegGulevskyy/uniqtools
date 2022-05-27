@@ -9,9 +9,30 @@ import {
   SegmentedControl,
   Stack,
   Title,
+  Text,
 } from '@mantine/core';
+import React from 'react';
+
+const TIMESTAMP_MS_LENGTH = 13;
+const TIMESTAMP_SECONDS_LENGTH = 10;
 
 export const DateTimeFromTimestamp = () => {
+  const [timestampInput, setTimestampInput] = React.useState('');
+  const onTimestampChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    if (value.length > TIMESTAMP_MS_LENGTH) return;
+
+    setTimestampInput(e.target.value);
+  };
+  const timestampFormat = React.useMemo(() => {
+    if (timestampInput.length === TIMESTAMP_MS_LENGTH) {
+      return 'Milliseconds';
+    }
+    if (timestampInput.length === TIMESTAMP_SECONDS_LENGTH) {
+      return 'Seconds';
+    }
+    return 'Unknown';
+  }, [timestampInput]);
   return (
     <>
       <Title order={5}>Get timestamp from date and time</Title>
@@ -21,8 +42,20 @@ export const DateTimeFromTimestamp = () => {
             label="Unix timestamp"
             description="Enter any format of unix timestamp (ms or seconds) from epoch"
           >
-            <Input />
+            <Input
+              value={Number(timestampInput)}
+              placeholder="Unix timestamp"
+              onChange={onTimestampChange}
+            />
           </InputWrapper>
+          <Group>
+            <Text size="xs" color="dimmed">
+              Input length: {timestampInput.length}
+            </Text>
+            <Text size="xs" color="dimmed">
+              Timestamp format: {timestampFormat}
+            </Text>
+          </Group>
           <CopyableBox displayValue="25/12/2020" />
         </Grid.Col>
         <Grid.Col span={8}>
