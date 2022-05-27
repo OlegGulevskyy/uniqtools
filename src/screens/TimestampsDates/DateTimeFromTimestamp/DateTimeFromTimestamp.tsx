@@ -23,6 +23,8 @@ export const DateTimeFromTimestamp = () => {
     onOutputFormatChange,
     dateTimezone,
     setDateTimezone,
+    showCountsOf,
+    onShowCountsOfChange,
   } = useLogic();
 
   return (
@@ -77,15 +79,28 @@ export const DateTimeFromTimestamp = () => {
             </Stack>
           </Group>
 
-          <CheckboxGroup
-            defaultValue={['daysCount']}
-            label="Show counts of"
-            description="Show / hide count of day, months etc."
-          >
-            <Checkbox value="daysCount" label="Days" />
-            <Checkbox value="weekCount" label="Weeks" />
-            <Checkbox value="monthCount" label="Months" />
-          </CheckboxGroup>
+          <Group>
+            <CheckboxGroup
+              defaultValue={['daysCount']}
+              label="Show counts of"
+              description="Show / hide count of day, months etc."
+              value={showCountsOf}
+              onChange={onShowCountsOfChange}
+            >
+              <Checkbox value="daysCount" label="Days" />
+              <Checkbox value="weekCount" label="Weeks" />
+              <Checkbox value="monthCount" label="Months" />
+            </CheckboxGroup>
+            {showCountsOf.includes('daysCount') && (
+              <CopyableBox displayValue="24" enableTooltip label="Days" />
+            )}
+            {showCountsOf.includes('weekCount') && (
+              <CopyableBox displayValue="24" enableTooltip label="Weeks" />
+            )}
+            {showCountsOf.includes('monthCount') && (
+              <CopyableBox displayValue="24" enableTooltip label="Months" />
+            )}
+          </Group>
         </Grid.Col>
       </Grid>
     </>

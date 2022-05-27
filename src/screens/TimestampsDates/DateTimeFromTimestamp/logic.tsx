@@ -9,8 +9,19 @@ const TIMESTAMP_MS_LENGTH = 13;
 const TIMESTAMP_SECONDS_LENGTH = 10;
 const DEFAULT_OUTPUT_FORMAT = 'DD/MM/YYYY HH:mm:ss';
 
+type ShowCountsOfType = 'daysCount' | 'weekCount' | 'monthCount';
+
 export const useLogic = () => {
   const [dateTimezone, setDateTimezone] = React.useState('local');
+  const [showCountsOf, setShowCountsOf] = React.useState<ShowCountsOfType[]>(
+    []
+  );
+
+  const onShowCountsOfChange = (changeData: ShowCountsOfType[]) => {
+    // console.log(item, nextItem);
+    setShowCountsOf(changeData);
+  };
+  console.log(showCountsOf);
   const keepLocal = React.useMemo(() => {
     return dateTimezone === 'local';
   }, [dateTimezone]);
@@ -54,6 +65,7 @@ export const useLogic = () => {
       useError(err);
     }
   }, [outputFormat, timestampInput, dateTimezone]);
+
   return {
     outputResult,
     timestampInput,
@@ -63,5 +75,7 @@ export const useLogic = () => {
     onOutputFormatChange,
     dateTimezone,
     setDateTimezone,
+    showCountsOf,
+    onShowCountsOfChange,
   };
 };
