@@ -21,7 +21,6 @@ export const useLogic = () => {
     // console.log(item, nextItem);
     setShowCountsOf(changeData);
   };
-  console.log(showCountsOf);
   const keepLocal = React.useMemo(() => {
     return dateTimezone === 'local';
   }, [dateTimezone]);
