@@ -1,9 +1,14 @@
 import { useError } from '@/hooks/useError';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import dayOfYear from 'dayjs/plugin/dayOfYear';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import locale from 'dayjs/locale/en-gb';
 import React from 'react';
 
-dayjs.extend(utc);
+dayjs.extend(utc).locale(locale);
+dayjs.extend(dayOfYear);
+dayjs.extend(weekOfYear);
 
 const TIMESTAMP_MS_LENGTH = 13;
 const TIMESTAMP_SECONDS_LENGTH = 10;
@@ -18,7 +23,6 @@ export const useLogic = () => {
   );
 
   const onShowCountsOfChange = (changeData: ShowCountsOfType[]) => {
-    // console.log(item, nextItem);
     setShowCountsOf(changeData);
   };
   const keepLocal = React.useMemo(() => {
@@ -65,6 +69,22 @@ export const useLogic = () => {
     }
   }, [outputFormat, timestampInput, dateTimezone]);
 
+  const dayOfYear = React.useMemo(() => {
+    if (!timestampInput) return 0;
+    return dayjs(Number(timestampInput)).dayOfYear();
+  }, [timestampInput]);
+
+  const weekOfYear = React.useMemo(() => {
+    if (!timestampInput) return 0;
+    return dayjs(Number(timestampInput)).week();
+  }, [timestampInput]);
+
+  const monthOfYear = React.useMemo(() => {
+    if (!timestampInput) return 0;
+    // months retrieved are 0 index based
+    return dayjs(Number(timestampInput)).month() + 1;
+  }, [timestampInput]);
+
   return {
     outputResult,
     timestampInput,
@@ -76,5 +96,8 @@ export const useLogic = () => {
     setDateTimezone,
     showCountsOf,
     onShowCountsOfChange,
+    dayOfYear,
+    weekOfYear,
+    monthOfYear,
   };
 };
