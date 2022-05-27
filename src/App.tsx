@@ -42,6 +42,9 @@ function App() {
                   theme.colorScheme === 'dark'
                     ? theme.colors.dark[8]
                     : theme.colors.gray[0],
+                height:
+                  'calc(100vh - var(--mantine-header-height, 0px) - var(--mantine-footer-height, 0px))',
+                overflowY: 'auto',
               },
             })}
           >
