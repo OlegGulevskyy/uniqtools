@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Title, Tooltip } from '@mantine/core';
 import copy from 'copy-to-clipboard';
-import { Copy } from 'tabler-icons-react';
+import { IconCopy } from '@tabler/icons';
 import cn from './CopyableBox.module.css';
 
 type CopyableBoxProps = {
@@ -49,7 +49,7 @@ export const Component: React.FC<CopyableBoxProps> = ({
           })}
         >
           <div>{displayValue}</div>
-          <Copy size={20} />
+          <IconCopy size={20} />
         </Box>
       </Tooltip>
     </div>

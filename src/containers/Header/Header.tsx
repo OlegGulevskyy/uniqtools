@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from '@/components/Logo';
 import { ActionIcon, ColorScheme, Group, Header, Tooltip } from '@mantine/core';
-import { MoonStars, Sun } from 'tabler-icons-react';
+import { IconMoonStars, IconSun } from '@tabler/icons';
 import { Discord } from '@/assets/icons/Discord';
 import { GitHub } from '@/assets/icons/GitHub';
 import { open } from '@tauri-apps/api/shell';
@@ -50,9 +50,9 @@ export const HeaderContainer: React.FC<HeaderContainerProps> = ({
             size={30}
           >
             {colorScheme === 'dark' ? (
-              <Sun size={16} />
+              <IconSun size={16} />
             ) : (
-              <MoonStars size={16} />
+              <IconMoonStars size={16} />
             )}
           </ActionIcon>
         </Group>

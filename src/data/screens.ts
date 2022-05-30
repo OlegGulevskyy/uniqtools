@@ -4,7 +4,7 @@ import {
 } from '@/screens/JsonValidationFormatting';
 import { TimestampsDates, TimestampsDatesId } from '@/screens/TimestampsDates';
 
-import { Lock, CalendarTime } from 'tabler-icons-react';
+import { IconLock, IconCalendarTime } from '@tabler/icons';
 
 export const ALL_SCREENS = [
   {
@@ -12,7 +12,7 @@ export const ALL_SCREENS = [
     title: 'Timestamp and Dates parsing',
     id: TimestampsDatesId,
     navigation: {
-      icon: CalendarTime,
+      icon: IconCalendarTime,
       color: 'blue',
       label: 'Timestamps and Dates',
       shortDescription: 'Parse timestamps and dates',
@@ -23,7 +23,7 @@ export const ALL_SCREENS = [
     title: 'JSON Validation and Formatting utility',
     id: JSONValidationFormattingId,
     navigation: {
-      icon: Lock,
+      icon: IconLock,
       color: 'pink',
       label: 'JSON Validation / Formatting',
       disabled: true,
@@ -35,7 +35,7 @@ export const ALL_SCREENS = [
     title: 'Base64 String Encoding / Decoding utility.. Coming soon!',
     id: 'base64-string',
     navigation: {
-      icon: Lock,
+      icon: IconLock,
       color: 'gray',
       label: 'Base64 String Encoder / Decoder',
       disabled: true,
@@ -47,7 +47,7 @@ export const ALL_SCREENS = [
     title: 'Markdown preview live editor... Coming soon!',
     id: 'markdown-editor',
     navigation: {
-      icon: Lock,
+      icon: IconLock,
       color: 'gray',
       label: 'Markdown preview',
       disabled: true,
