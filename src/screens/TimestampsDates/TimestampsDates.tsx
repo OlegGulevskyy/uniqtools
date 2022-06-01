@@ -35,7 +35,7 @@ export const Component = () => {
 
         <Divider style={{ margin: '20px 0' }} />
 
-        <Title order={5}>Get timestamp from date and time</Title>
+        <Title order={5}>Get timestamp from date & time</Title>
         <TimestampFromDateTime />
 
         <Divider style={{ margin: '20px 0' }} />

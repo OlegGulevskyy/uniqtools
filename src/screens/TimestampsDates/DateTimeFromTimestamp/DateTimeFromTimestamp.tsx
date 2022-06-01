@@ -32,7 +32,7 @@ export const DateTimeFromTimestamp = () => {
 
   return (
     <>
-      <Title order={5}>Get timestamp from date and time</Title>
+      <Title order={5}>Get date & time from timestamp</Title>
       <Grid>
         <Grid.Col xs={12} sm={12} md={4} lg={4}>
           <InputWrapper
