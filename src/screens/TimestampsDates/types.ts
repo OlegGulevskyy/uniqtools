@@ -1,5 +1,5 @@
 export interface TimestampDatesSettings {
-  showTimestampInFormat: 'ms' | 'seconds';
+  showTimestampInFormat: 'milliseconds' | 'seconds';
   showDayOfYear: boolean;
   showWeekOfYear: boolean;
   showMonthOfYear: boolean;

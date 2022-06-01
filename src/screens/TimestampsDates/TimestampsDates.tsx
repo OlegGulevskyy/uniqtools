@@ -2,9 +2,12 @@ import { Title, Text, Paper, Divider, Menu, Group } from '@mantine/core';
 import { IconDeviceFloppy, IconX } from '@tabler/icons';
 import { CurrentStats } from './CurrentStats';
 import { DateTimeFromTimestamp } from './DateTimeFromTimestamp';
+import { useLogic } from './logic';
 import { TimestampFromDateTime } from './TimestampFromDateTime';
 
 export const Component = () => {
+  const { getByKey } = useLogic();
+
   return (
     <div>
       <Group style={{ marginBottom: '20px' }}>

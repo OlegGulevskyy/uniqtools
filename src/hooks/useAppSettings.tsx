@@ -28,9 +28,14 @@ export function useAppSettings<K extends keyof Settings>(screenKey: K) {
     store.set(String(key), value);
   };
 
+  const updateAll = async (value: Settings[K]) => {
+    await store.set(screenKey, value);
+  };
+
   return {
     getAll,
     getByKey,
     updateByKey,
+    updateAll,
   };
 }
