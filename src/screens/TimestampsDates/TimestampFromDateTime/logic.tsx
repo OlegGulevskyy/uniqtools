@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import { useTimestampFromDateTime } from './context';
+import { TimestampFormat } from './types';
 
 const TimestampFormats = {
   Milliseconds: 'milliseconds',
@@ -18,6 +19,9 @@ export const useLogic = () => {
   } = useTimestampFromDateTime();
 
   const onDatePickerChange = (value: Date) => setCurrentDate(value);
+
+  const onTimestampFormatChange = (value: TimestampFormat) =>
+    setTimestampFormat(value);
 
   const resetCurrentDate = () =>
     setCurrentDate(new Date(currentDate.setHours(0, 0, 0, 0)));
@@ -57,6 +61,6 @@ export const useLogic = () => {
     resetDate: resetCurrentDate,
     resetTime: resetCurrentTime,
     timestampFormat,
-    setTimestampFormat,
+    setTimestampFormat: onTimestampFormatChange,
   };
 };
