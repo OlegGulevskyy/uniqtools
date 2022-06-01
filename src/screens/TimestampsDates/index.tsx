@@ -1,10 +1,13 @@
 import { DateTimeFromTimestampProvider } from './DateTimeFromTimestamp';
+import { TimestampFromDateTimeProvider } from './TimestampFromDateTime/context';
 import { Component } from './TimestampsDates';
 
 export const TimestampsDates = () => {
   return (
     <DateTimeFromTimestampProvider>
-      <Component />
+      <TimestampFromDateTimeProvider>
+        <Component />
+      </TimestampFromDateTimeProvider>
     </DateTimeFromTimestampProvider>
   );
 };

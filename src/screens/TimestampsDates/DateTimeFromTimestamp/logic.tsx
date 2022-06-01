@@ -5,6 +5,7 @@ import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import locale from 'dayjs/locale/en-gb';
 import React from 'react';
+import { useDateTimeFromTimestamp } from './context';
 
 dayjs.extend(utc).locale(locale);
 dayjs.extend(dayOfYear);
@@ -17,10 +18,8 @@ const DEFAULT_OUTPUT_FORMAT = 'DD/MM/YYYY HH:mm:ss';
 type ShowCountsOfType = 'daysCount' | 'weekCount' | 'monthCount';
 
 export const useLogic = () => {
-  const [dateTimezone, setDateTimezone] = React.useState('local');
-  const [showCountsOf, setShowCountsOf] = React.useState<ShowCountsOfType[]>(
-    []
-  );
+  const { setShowCountsOf, dateTimezone, setDateTimezone, showCountsOf } =
+    useDateTimeFromTimestamp();
 
   const onShowCountsOfChange = (changeData: ShowCountsOfType[]) => {
     setShowCountsOf(changeData);

@@ -70,7 +70,7 @@ export const TimestampFromDateTime = () => {
             value={timestampFormat}
             onChange={setTimestampFormat}
           >
-            <Chip value={'ms'}>Milliseconds</Chip>
+            <Chip value={'milliseconds'}>Milliseconds</Chip>
             <Chip value={'seconds'}>Seconds</Chip>
           </Chips>
         </Grid.Col>
