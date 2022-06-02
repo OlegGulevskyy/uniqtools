@@ -6,7 +6,7 @@ import { useTimestampFromDateTime } from './TimestampFromDateTime/context';
 import { useDateTimeFromTimestamp } from './DateTimeFromTimestamp';
 
 export const useLogic = () => {
-  const { save, getByKey, getAll } = useAppSettings('timestamps-dates');
+  const { save, getAll } = useAppSettings('timestamps-dates');
   const { setTimestampFormat, timestampFormat } = useTimestampFromDateTime();
   const { setDateTimezone, setShowCountsOf, showCountsOf, dateTimezone } =
     useDateTimeFromTimestamp();
@@ -42,8 +42,19 @@ export const useLogic = () => {
       },
     });
   }, [timestampFormat, showCountsOf, dateTimezone]);
+
+  const resetSettings = React.useCallback(async () => {
+    await save({
+      withNotif: true,
+      data: { ...defaultTimestampDatesSettings },
+    });
+    setTimestampFormat('milliseconds');
+    setDateTimezone('local');
+    setShowCountsOf(['daysCount']);
+  }, []);
+
   return {
     saveSettings,
-    getByKey,
+    resetSettings,
   };
 };

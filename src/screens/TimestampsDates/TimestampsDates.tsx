@@ -6,7 +6,7 @@ import { useLogic } from './logic';
 import { TimestampFromDateTime } from './TimestampFromDateTime';
 
 export const Component = () => {
-  const { saveSettings } = useLogic();
+  const { saveSettings, resetSettings } = useLogic();
 
   return (
     <div>
@@ -25,7 +25,9 @@ export const Component = () => {
           >
             Save
           </Menu.Item>
-          <Menu.Item icon={<IconX size={14} />}>Reset to default</Menu.Item>
+          <Menu.Item onClick={resetSettings} icon={<IconX size={14} />}>
+            Reset to default
+          </Menu.Item>
         </Menu>
       </Group>
       <Paper shadow="xs" p="md">
