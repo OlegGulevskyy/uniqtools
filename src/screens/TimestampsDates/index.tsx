@@ -1,15 +1,12 @@
-import { DateTimeFromTimestampProvider } from './DateTimeFromTimestamp';
-import { TimestampFromDateTimeProvider } from './TimestampFromDateTime/context';
+import { TimestampsDatesProvider } from './context';
 import { Component } from './TimestampsDates';
 import { TimestampDatesSettings } from './types';
 
 export const TimestampsDates = () => {
   return (
-    <DateTimeFromTimestampProvider>
-      <TimestampFromDateTimeProvider>
-        <Component />
-      </TimestampFromDateTimeProvider>
-    </DateTimeFromTimestampProvider>
+    <TimestampsDatesProvider>
+      <Component />
+    </TimestampsDatesProvider>
   );
 };
 

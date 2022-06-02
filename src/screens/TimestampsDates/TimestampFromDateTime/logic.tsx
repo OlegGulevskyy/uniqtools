@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import React from 'react';
-import { useTimestampFromDateTime } from './context';
+import { useTimestampsDates } from '../context';
 import { TimestampFormat } from './types';
 
 const TimestampFormats = {
@@ -16,7 +16,7 @@ export const useLogic = () => {
     currentDate,
     currentTime,
     timestampFormat,
-  } = useTimestampFromDateTime();
+  } = useTimestampsDates();
 
   const onDatePickerChange = (value: Date) => setCurrentDate(value);
 

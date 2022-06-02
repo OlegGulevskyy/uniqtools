@@ -5,8 +5,8 @@ import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import locale from 'dayjs/locale/en-gb';
 import React from 'react';
-import { useDateTimeFromTimestamp } from './context';
 import { DateTimezone } from './types';
+import { useTimestampsDates } from '../context';
 
 dayjs.extend(utc).locale(locale);
 dayjs.extend(dayOfYear);
@@ -20,7 +20,7 @@ type ShowCountsOfType = 'daysCount' | 'weekCount' | 'monthCount';
 
 export const useLogic = () => {
   const { setShowCountsOf, dateTimezone, setDateTimezone, showCountsOf } =
-    useDateTimeFromTimestamp();
+    useTimestampsDates();
 
   const onDateTimezoneChange = (value: DateTimezone) => setDateTimezone(value);
 

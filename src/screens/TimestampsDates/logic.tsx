@@ -2,14 +2,19 @@ import React from 'react';
 import { useAppSettings } from '@/hooks/useAppSettings';
 import { defaultTimestampDatesSettings } from '.';
 import type { TimestampDatesSettings } from './types';
-import { useTimestampFromDateTime } from './TimestampFromDateTime/context';
-import { useDateTimeFromTimestamp } from './DateTimeFromTimestamp';
+import { useTimestampsDates } from './context';
 
 export const useLogic = () => {
   const { save, getAll } = useAppSettings('timestamps-dates');
-  const { setTimestampFormat, timestampFormat } = useTimestampFromDateTime();
-  const { setDateTimezone, setShowCountsOf, showCountsOf, dateTimezone } =
-    useDateTimeFromTimestamp();
+  const {
+    setTimestampFormat,
+    timestampFormat,
+    setDateTimezone,
+    setShowCountsOf,
+    showCountsOf,
+    dateTimezone,
+  } = useTimestampsDates();
+
   const [screenSettings, setScreenSettings] = React.useState<
     TimestampDatesSettings | {}
   >({});
@@ -17,10 +22,13 @@ export const useLogic = () => {
   React.useEffect(() => {
     const loadScreenSettings = async () => {
       const settings = await getAll();
-      if (!settings) {
+      if ((settings && Object.keys(settings).length === 0) || !settings) {
         // no settings - create default ones
         await save({ data: defaultTimestampDatesSettings });
         setScreenSettings(defaultTimestampDatesSettings);
+        setTimestampFormat(defaultTimestampDatesSettings.showTimestampInFormat);
+        setDateTimezone(defaultTimestampDatesSettings.dateTimezone);
+        setShowCountsOf(defaultTimestampDatesSettings.showCountsOf);
       } else {
         setScreenSettings(settings);
         setTimestampFormat(settings.showTimestampInFormat);

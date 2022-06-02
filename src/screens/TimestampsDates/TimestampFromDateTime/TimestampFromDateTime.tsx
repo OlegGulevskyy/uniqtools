@@ -1,5 +1,5 @@
 import { CopyableBox } from '@/components/CopyableBox';
-import { Grid, Title, Button, Chips, Chip, Group, Stack } from '@mantine/core';
+import { Grid, Title, Button, Chips, Chip, Stack } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
 import { IconCalendar, IconClock } from '@tabler/icons';
 import { useLogic } from './logic';
