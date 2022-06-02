@@ -1,6 +1,7 @@
+import { ShowCountsOfType } from './DateTimeFromTimestamp/types';
+
 export interface TimestampDatesSettings {
   showTimestampInFormat: 'milliseconds' | 'seconds';
-  showDayOfYear: boolean;
-  showWeekOfYear: boolean;
-  showMonthOfYear: boolean;
+  showCountsOf: ShowCountsOfType[];
+  dateTimezone: 'local' | 'utc';
 }

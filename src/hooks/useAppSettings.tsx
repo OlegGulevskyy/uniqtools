@@ -10,6 +10,10 @@ interface Settings {
 export function useAppSettings<K extends keyof Settings>(screenKey: K) {
   const store = new Store(SETTINGS_FILE_NAME);
 
+  const listAll = async () => {
+    return await store.entries();
+  };
+
   const getAll = async () => {
     return await store.get<Settings[K]>(screenKey);
   };
@@ -32,10 +36,16 @@ export function useAppSettings<K extends keyof Settings>(screenKey: K) {
     await store.set(screenKey, value);
   };
 
+  const resetAll = async () => {
+    await store.set(screenKey, null);
+  };
+
   return {
     getAll,
     getByKey,
     updateByKey,
     updateAll,
+    resetAll,
+    listAll,
   };
 }

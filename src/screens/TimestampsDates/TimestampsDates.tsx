@@ -6,7 +6,7 @@ import { useLogic } from './logic';
 import { TimestampFromDateTime } from './TimestampFromDateTime';
 
 export const Component = () => {
-  const { getByKey } = useLogic();
+  const { saveSettings } = useLogic();
 
   return (
     <div>
@@ -20,6 +20,7 @@ export const Component = () => {
         <Menu>
           <Menu.Label>Settings</Menu.Label>
           <Menu.Item
+            onClick={saveSettings}
             icon={<IconDeviceFloppy size={14} />}
             rightSection={
               <Text size="xs" color="dimmed">
