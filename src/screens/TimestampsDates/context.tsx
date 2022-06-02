@@ -19,6 +19,8 @@ type TimestampsDatesSettingsContext = {
   setDateTimezone: React.Dispatch<React.SetStateAction<DateTimezone>>;
   showCountsOf: ShowCountsOfType[];
   setShowCountsOf: React.Dispatch<React.SetStateAction<ShowCountsOfType[]>>;
+  outputFormat: string;
+  setOutputFormat: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const TimestampsDatesContext = React.createContext(
@@ -36,6 +38,7 @@ export const TimestampsDatesProvider: React.FC<{
   const [showCountsOf, setShowCountsOf] = React.useState<ShowCountsOfType[]>(
     []
   );
+  const [outputFormat, setOutputFormat] = React.useState('');
 
   return (
     <TimestampsDatesContext.Provider
@@ -50,6 +53,8 @@ export const TimestampsDatesProvider: React.FC<{
         setDateTimezone,
         showCountsOf,
         setShowCountsOf,
+        outputFormat,
+        setOutputFormat,
       }}
     >
       {children}

@@ -16,4 +16,5 @@ export const defaultTimestampDatesSettings: TimestampDatesSettings = {
   showCountsOf: ['daysCount'],
   showTimestampInFormat: 'milliseconds',
   dateTimezone: 'local',
+  dateTimeOutputFormat: '',
 };

@@ -13,6 +13,8 @@ export const useLogic = () => {
     setShowCountsOf,
     showCountsOf,
     dateTimezone,
+    outputFormat,
+    setOutputFormat,
   } = useTimestampsDates();
 
   const [screenSettings, setScreenSettings] = React.useState<
@@ -34,6 +36,7 @@ export const useLogic = () => {
         setTimestampFormat(settings.showTimestampInFormat);
         setDateTimezone(settings.dateTimezone);
         setShowCountsOf(settings.showCountsOf);
+        setOutputFormat(settings.dateTimeOutputFormat);
       }
     };
     loadScreenSettings();
@@ -47,9 +50,10 @@ export const useLogic = () => {
         dateTimezone: dateTimezone,
         showCountsOf: showCountsOf,
         showTimestampInFormat: timestampFormat,
+        dateTimeOutputFormat: outputFormat,
       },
     });
-  }, [timestampFormat, showCountsOf, dateTimezone]);
+  }, [timestampFormat, showCountsOf, dateTimezone, outputFormat]);
 
   const resetSettings = React.useCallback(async () => {
     await save({

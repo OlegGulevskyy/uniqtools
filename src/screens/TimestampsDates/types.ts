@@ -4,4 +4,5 @@ export interface TimestampDatesSettings {
   showTimestampInFormat: 'milliseconds' | 'seconds';
   showCountsOf: ShowCountsOfType[];
   dateTimezone: 'local' | 'utc';
+  dateTimeOutputFormat: string;
 }

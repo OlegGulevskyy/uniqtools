@@ -19,8 +19,14 @@ const DEFAULT_OUTPUT_FORMAT = 'DD/MM/YYYY HH:mm:ss';
 type ShowCountsOfType = 'daysCount' | 'weekCount' | 'monthCount';
 
 export const useLogic = () => {
-  const { setShowCountsOf, dateTimezone, setDateTimezone, showCountsOf } =
-    useTimestampsDates();
+  const {
+    setShowCountsOf,
+    dateTimezone,
+    setDateTimezone,
+    showCountsOf,
+    outputFormat,
+    setOutputFormat,
+  } = useTimestampsDates();
 
   const onDateTimezoneChange = (value: DateTimezone) => setDateTimezone(value);
 
@@ -34,7 +40,6 @@ export const useLogic = () => {
   const [timestampInput, setTimestampInput] = React.useState(
     String(dayjs().utc(keepLocal).valueOf())
   );
-  const [outputFormat, setOutputFormat] = React.useState('');
 
   const onTimestampChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
