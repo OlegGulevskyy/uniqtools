@@ -10,9 +10,10 @@
     "tauri:fmt": "cd ./src-tauri && cargo fmt"
   },
   "dependencies": {
-    "@mantine/core": "^4.2.6",
+    "@mantine/core": "^4.2.7",
     "@mantine/dates": "^4.2.6",
-    "@mantine/hooks": "^4.2.6",
+    "@mantine/hooks": "^4.2.7",
+    "@mantine/notifications": "^4.2.7",
     "@tabler/icons": "^1.68.0",
     "@tauri-apps/api": "^1.0.0-rc.6",
     "copy-to-clipboard": "^3.3.1",
