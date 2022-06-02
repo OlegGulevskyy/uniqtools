@@ -62,7 +62,8 @@ export const useLogic = () => {
   const outputResult = React.useMemo(() => {
     if (Number(timestampInput) === 0) return 'Nothing to parse';
     try {
-      const result = dayjs(Number(timestampInput))
+      const dayjsAlias = timestampFormat === 'Seconds' ? dayjs.unix : dayjs;
+      const result = dayjsAlias(Number(timestampInput))
         .utc(keepLocal)
         .format(outputFormat || DEFAULT_OUTPUT_FORMAT);
       return result;
