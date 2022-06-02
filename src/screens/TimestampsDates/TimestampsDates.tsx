@@ -22,11 +22,6 @@ export const Component = () => {
           <Menu.Item
             onClick={saveSettings}
             icon={<IconDeviceFloppy size={14} />}
-            rightSection={
-              <Text size="xs" color="dimmed">
-                ⌘S
-              </Text>
-            }
           >
             Save
           </Menu.Item>
