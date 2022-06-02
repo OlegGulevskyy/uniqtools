@@ -5,6 +5,8 @@ import dayOfYear from 'dayjs/plugin/dayOfYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import locale from 'dayjs/locale/en-gb';
 import React from 'react';
+import { DateTimezone } from './types';
+import { useTimestampsDates } from '../context';
 
 dayjs.extend(utc).locale(locale);
 dayjs.extend(dayOfYear);
@@ -17,10 +19,10 @@ const DEFAULT_OUTPUT_FORMAT = 'DD/MM/YYYY HH:mm:ss';
 type ShowCountsOfType = 'daysCount' | 'weekCount' | 'monthCount';
 
 export const useLogic = () => {
-  const [dateTimezone, setDateTimezone] = React.useState('local');
-  const [showCountsOf, setShowCountsOf] = React.useState<ShowCountsOfType[]>(
-    []
-  );
+  const { setShowCountsOf, dateTimezone, setDateTimezone, showCountsOf } =
+    useTimestampsDates();
+
+  const onDateTimezoneChange = (value: DateTimezone) => setDateTimezone(value);
 
   const onShowCountsOfChange = (changeData: ShowCountsOfType[]) => {
     setShowCountsOf(changeData);
@@ -60,7 +62,8 @@ export const useLogic = () => {
   const outputResult = React.useMemo(() => {
     if (Number(timestampInput) === 0) return 'Nothing to parse';
     try {
-      const result = dayjs(Number(timestampInput))
+      const dayjsAlias = timestampFormat === 'Seconds' ? dayjs.unix : dayjs;
+      const result = dayjsAlias(Number(timestampInput))
         .utc(keepLocal)
         .format(outputFormat || DEFAULT_OUTPUT_FORMAT);
       return result;
@@ -93,7 +96,7 @@ export const useLogic = () => {
     outputFormat,
     onOutputFormatChange,
     dateTimezone,
-    setDateTimezone,
+    setDateTimezone: onDateTimezoneChange,
     showCountsOf,
     onShowCountsOfChange,
     dayOfYear,
